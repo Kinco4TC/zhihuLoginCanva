@@ -5,14 +5,14 @@ var cicleLineCanvas = function(obj) {
         speedY = [],
         circle = [],
         lineArr = [];
-    let n = this.InitObj.n || 10;
+    let cicleNum = this.InitObj.cicleNum || 10;
     let id = this.InitObj.id || "cicleLineCanva";
-    let color = this.InitObj.color || "#696969";
-    let lineLength = 300;
+    let cicleColor = this.InitObj.cicleColor || "#696969";
+    let lineLength = this.InitObj.lineLenth || 300;
     let canvasWidth = document.body.clientWidth,
         canvasHeight = document.body.clientHeight;
     initCanvas = function(argument) {
-        var myCanvas = document.createElement("canvas");
+        let myCanvas = document.createElement("canvas");
         myCanvas.setAttribute("width", canvasWidth);
         myCanvas.setAttribute("height", canvasHeight);
         myCanvas.setAttribute("id", argument);
@@ -20,9 +20,9 @@ var cicleLineCanvas = function(obj) {
     };
     Init = function(argument) {
         let i, j, line;
-        for (i = 0; i < n; i++) {
+        for (i = 0; i < cicleNum; i++) {
             let cir = new createjs.Shape();
-            cir.graphics.beginFill("#e3e3e3").drawCircle(0, 0, Math.random() * 15); //半径颜色设置
+            cir.graphics.beginFill(cicleColor).drawCircle(0, 0, Math.random() * 15); //半径颜色设置
             cir.x = Math.random() * canvasWidth;
             cir.y = Math.random() * canvasHeight; //设置位置
             speedX.push(Math.random() );
@@ -47,7 +47,6 @@ var cicleLineCanvas = function(obj) {
             }
         }
         stage.update();
-
     };
     handleTick = function(argument) {
         let i, j, k = 0, line;
@@ -55,7 +54,7 @@ var cicleLineCanvas = function(obj) {
             stage.removeChild(lineArr[j]);
         }
         lineArr=[];
-        for (i = 0; i < n; i++) {
+        for (i = 0; i < cicleNum; i++) {
             if ((circle[i].x - stage.canvas.width < 2 && circle[i].x - stage.canvas.width > 0) ||
                 (circle[i].y - stage.canvas.height < 2 && circle[i].y - stage.canvas.height > 0)) { f[i] = false; }
             if (circle[i].x - 0 < 2 || circle[i].y - 0 < 2) { f[i] = true; }
@@ -80,7 +79,7 @@ var cicleLineCanvas = function(obj) {
         }
         stage.update();
     };
-    initCanvas(id); //通过js写入canvas
+    initCanvas(id); 
     stage = new createjs.Stage(id);
     Init(50);
     createjs.Ticker.addEventListener("tick", handleTick);

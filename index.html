@@ -3,10 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <link rel="stylesheet" type="text/css" href="a.css">
+    <title>知乎登陆页面背景canvas</title>
     <style>
         body,html{
             height: 100%;
@@ -20,11 +17,14 @@
 
 <body>
     <script src="easeljs.min.js"></script>
-    <script src="a.js"></script>
+    <script src="cicleMove.js"></script>
     <script>
     new cicleLineCanvas({
         id: "democanvas",
-        n: 30
+        cicleNum : 30,
+        lineLenth : 300,
+        cicleColor : "#e3e3e3",
+        speed : 3
     });
     </script>
 </body>
