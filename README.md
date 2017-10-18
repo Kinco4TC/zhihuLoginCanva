@@ -13,5 +13,6 @@ cicleNum :  30,//canvas中圆的个数
 lineLenth : 300,//连接点线的最长长度
 cicleColor : #e3e3e3,//圆的颜色
 speed : 3,// 移动速度范围</code></pre>
-<p>Edit By <a href="http://mahua.jser.me">MaHua</a></p>
+
+![效果展示](effect.gif)
 </body></html>
